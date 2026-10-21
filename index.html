@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Replaced by `flutter build web --base-href`: "/" locally, the
+       repository's path on GitHub Pages. -->
+  <base href="/kosha-web/">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Kosha for the web: your Kosha in a browser, saved to a file on your computer. Nothing is uploaded anywhere.">
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#0F1419">
+
+  <!-- The offline promise, kept by the browser itself: the page may load
+       its own files from where it's hosted, and talk to nothing else.
+       No other address can be fetched, posted to, framed or loaded from.
+       'wasm-unsafe-eval' lets the browser compile the page's own
+       WebAssembly (Flutter's renderer and SQLite); it allows no eval. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self'; worker-src 'self' blob:; manifest-src 'self'; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'none'">
+
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Kosha">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+  <link rel="icon" type="image/png" href="favicon.png">
+
+  <title>Kosha</title>
+  <link rel="manifest" href="manifest.json">
+  <style>
+    /* The app's own background from the very first paint, so the page
+       never flashes white before Flutter draws. */
+    html, body { margin: 0; height: 100%; background: #0F1419; }
+    @media (prefers-color-scheme: light) { html, body { background: #E9EDF1; } }
+    .loading { position: fixed; inset: 0; display: grid; place-items: center;
+      font: 500 15px system-ui, sans-serif; color: #6B7280; }
+  </style>
+</head>
+<body>
+  <!-- Under Flutter's view, which covers it once it's drawn. -->
+  <div class="loading" aria-hidden="true">Loading Kosha…</div>
+  <script src="flutter_bootstrap.js" async></script>
+  <script src="register_sw.js" defer></script>
+</body>
+</html>
